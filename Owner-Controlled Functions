@@ -1,0 +1,3 @@
+function setMaxTransactionAmount(uint256 _amount) external onlyOwner { ... }
+function addExemptedAddress(address _addr) external onlyOwner { ... }
+function enableTrading() external onlyOwner { ... }
