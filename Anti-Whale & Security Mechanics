@@ -1,0 +1,12 @@
+function _beforeTokenTransfer(address from, address to, uint256 amount) internal override {
+    super._beforeTokenTransfer(from, to, amount);
+
+    if (!tradingEnabled) {
+        require(from == owner() || to == owner(), "Trading disabled");
+        return;
+    }
+
+    if (!isExempted[from] && !isExempted[to]) {
+        require(amount <= maxTransactionAmount, "Exceeds max transaction");
+    }
+}
