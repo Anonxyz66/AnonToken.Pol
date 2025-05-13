@@ -1,0 +1,5 @@
+constructor() ERC20("AnonToken", "ANON") {
+    _mint(msg.sender, 1_000_000_000 * 10**decimals()); // 1B tokens
+    maxTransactionAmount = 10_000_000 * 10**decimals(); // 1% of supply
+    isExempted[msg.sender] = true; // Owner exempt from limits
+}
